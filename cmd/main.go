@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Complete_Serverless_Stack/pkg/handlers"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
@@ -35,13 +36,13 @@ func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse
 		return handlers.GetUser(req, tableName, dynaClient)
 
 	case "POST":
-		return handlers.GetUser(req, tableName, dynaClient)
+		return handlers.CreateUser(req, tableName, dynaClient)
 
 	case "PUT":
-		return handlers.GetUser(req, tableName, dynaClient)
+		return handlers.UpdateUser(req, tableName, dynaClient)
 
 	case "DELETE":
-		return handlers.GetUser(req, tableName, dynaClient)
+		return handlers.DeleteUser(req, tableName, dynaClient)
 	}
 
 	default:
