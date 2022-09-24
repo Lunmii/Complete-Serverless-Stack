@@ -63,7 +63,7 @@ func FetchUsers(tableName string, dynaClient dynamodbiface.DynamoDBAPI) (*[]User
 	}
 
 	item := new([]User)
-	err = dynamodbattribute.UnmarshalMap(result.Items, item)
+	err = dynamodbattribute.UnmarshalListOfMaps(result.Items, item)
 	return item, nil
 }
 
@@ -128,7 +128,7 @@ func UpdateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient 
 
 }
 
-func DeleteUser(req events.APIGatewayProxyRequest, dynaClient dynamodbiface.DynamoDBAPI) error {
+func DeleteUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbiface.DynamoDBAPI) error {
 	email := req.QueryStringParameters["email"]
 	input := &dynamodb.DeleteItemInput{
 		Key: map[string]*dynamodb.AttributeValue{

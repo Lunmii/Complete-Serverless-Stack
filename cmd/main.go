@@ -18,7 +18,7 @@ var (
 func main() {
 	region := os.Getenv("AWS_REGION")
 	awsSession, err := session.NewSession(&aws.Config{
-		Region: aws.String(region),})
+		Region: aws.String(region)})
 
 	if err != nil {
 		return
@@ -30,8 +30,8 @@ func main() {
 
 const tableName = "LambdaInGoUser"
 
-func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error){
-	switch req.HTTPMethod{
+func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	switch req.HTTPMethod {
 	case "GET":
 		return handlers.GetUser(req, tableName, dynaClient)
 
@@ -43,8 +43,9 @@ func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse
 
 	case "DELETE":
 		return handlers.DeleteUser(req, tableName, dynaClient)
-	}
 
 	default:
 		return handlers.UnhandledMethod()
+
+	}
 }
