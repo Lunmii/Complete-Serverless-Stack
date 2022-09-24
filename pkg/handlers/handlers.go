@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-var ErrowMethodNotAllowed = "method not allowed"
+var ErrorMethodNotAllowed = "method not allowed"
 
 type ErrorBody struct {
 	ErrorMsg *string `json:"error,omitempty"`
@@ -58,12 +58,12 @@ func DeleteUser(req events.APIGatewayProxyRequest, tableName string, dynaClient 
 	err := Users.DeleteUser(req, tableName, dynaClient)
 	if err != nil {
 		return apiResponse(http.StatusBadRequest, ErrorBody{
-			aws.String(err.Error),
+			aws.String(err.Error()),
 		})
 	}
 	return apiResponse(http.StatusOK, nil)
 }
 func UnhandledMethod() (*events.APIGatewayProxyResponse, error) {
-	return apiResponse(http.StatusMethodNotAllowed, ErrowMethodNotAllowed)
+	return apiResponse(http.StatusMethodNotAllowed, ErrorMethodNotAllowed)
 
 }
