@@ -55,3 +55,7 @@ func FetchUsers(tableName string, dynaClient dynamodbiface.DynamoDBAPI)(*[]User,
 	err = dynamodbattribute.UnmarshalMap(result.Items, item)
 	return item, nil
 }
+
+func CreateUser()(){
+
+}
