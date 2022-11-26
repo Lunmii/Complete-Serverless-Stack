@@ -1,10 +1,10 @@
-# **Serverless Stack**(API Gateway, Lambda, DynamoDB) that creates a simple user API  with email validation.
+### **Serverless Stack**(API Gateway, Lambda, DynamoDB) that creates a simple user API  with email validation.
 
 
 ### **Requirements**
 1. An AWS Account
 2. Install Go Version 1.19.3.
-3. Internet Connection
+3. An Internet Connection
 
 ### **Installation**
 
