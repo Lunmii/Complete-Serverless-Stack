@@ -8,7 +8,7 @@
 
 ### **Installation**
 
-To Install, run the following command in your terminal 
+To Install, run the following command in your terminal
 
-###### _go get "https://github.com/Lunmii/Complete-Serverless-Stack"_
+##### _`go get "https://github.com/Lunmii/Complete-Serverless-Stack"`_
 
